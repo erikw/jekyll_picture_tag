@@ -14,7 +14,7 @@ module PictureTag
 
       # Returns array of formats that vips can save to
       def vips_formats
-        @vips_formats ||= `vips -l filesave`
+        @vips_formats ||= `vips -l save`
                           .scan(/\.[a-z]{1,5}/)
                           .uniq
                           .map { |format| format.strip.delete_prefix('.') }
